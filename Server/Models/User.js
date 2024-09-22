@@ -1,0 +1,63 @@
+const mongoose=require('mongoose')
+
+const userSchema=new mongoose.Schema(
+    {
+      firstname:{
+        type:String
+      },
+      lastname:{
+        type:String
+      },
+      email:{ 
+        type:String
+      },
+      password:{
+        type:String
+      },
+      confirmPassword:{
+        type:String
+      },
+      user:{
+        type:String,
+        enum:['admin','employee']
+      },
+      token:{
+        type:String
+      },
+      task:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'taskSchema'
+      },
+      completedtask:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"tasksubmitbyemployeeSchema"
+      }],
+      completedProject:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'projectSchema'
+      }],
+      projects:[{
+        type:mongoose.Schema.Types.ObjectId,  
+        ref:'projectSchema'
+      }],
+      istaskedAssigned:{
+        type:Boolean,
+        default:false
+      },
+      isprojectAssigned:{
+        type:Boolean,
+        default:false,
+      },
+      isWorkingOnTask:{
+        type:Boolean,
+        default:false
+      },
+      isTaskedSubmit:{
+        type:Boolean,
+        default:false
+      },
+      
+    }
+)
+module.exports=mongoose.model('userSchema',userSchema)
+
