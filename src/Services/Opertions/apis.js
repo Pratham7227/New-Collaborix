@@ -1,4 +1,4 @@
-const BASE_URL="http://localhost:4000/api/v1"
+const BASE_URL="https://new-collaborix.onrender.com"
 
 export const authApis={
     signup:BASE_URL+'/user/signup',
