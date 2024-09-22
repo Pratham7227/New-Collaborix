@@ -1,4 +1,4 @@
-const BASE_URL="https://new-collaborix.onrender.com"
+const BASE_URL="https://new-collaborix.onrender.com/api/v1"
 
 export const authApis={
     signup:BASE_URL+'/user/signup',
